@@ -20,10 +20,8 @@
 Enable individual API permissions by defining each here.
 The 'device' permission is required for the 'deviceready' event.
 -->
-    <feature name="http://api.phonegap.com/1.0/device" />
-	<feature name="Geolocation"><param value="org.apache.cordova.GeoBroker" name="android-package"/>
-
-</feature>
+    <feature name="http://api.phonegap.com/1.0/device" /></feature>
+	<feature name="Geolocation"><param value="org.apache.cordova.GeoBroker" name="android-package"/></feature>
 
 <gap:platform name="android" />
 
