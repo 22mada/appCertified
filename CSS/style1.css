@@ -1,0 +1,25 @@
+ html		 		{width: 100%;
+					margin: 0px;
+					padding: 10px;
+					font-family: Verdana, Arial; 
+					background-color:  #FFFFFF;}
+body				{width: 100%;
+					margin: 0px;
+					padding: 10px;
+					font-family: Verdana, Arial; 
+					background-color:  #FFFFFF;}
+.map-canvas			{width: 100%;
+					margin: 0px;
+					padding: 0px;}
+.myCanvas			{width: 100%;
+					margin: 0px;
+					padding: 0px;}
+}
+.myfilter			{padding: 20px}
+img					{width: 100%;
+					display: block;
+					margin-left: auto;
+					margin-right: auto;}
+h1, h2, p, footer		{padding: 20px;}
+
+form, ul	, li			{padding: 10px;}

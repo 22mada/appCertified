@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Sarah Daugherty">
+	
+	<title>Certified Local</title>
+	<link rel="stylesheet" type="text/css" href="CSS/style1.css"/>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="scripts/certified.js"></script>
+	
+	
+</head>
+<body>
+<!-- Page 1 Menu-->	
+
+<div data-role="page" data-theme="a" id="menu">
+  <div data-role="header">
+    <img class="displayed" src="images/certified.jpg" alt="Certified Local- Florida Edition Logo"/>
+  </div>
+  
+  <div data-role="content">
+	   <ul data-role="listview" data-inset="true">
+		<li><a href="#instructions">How To Play</a></li>
+		<li><a href="#rank">Current Rank</a></li>
+		<li><a href="#search">Search for Jewels</a></li>
+		<li><a href="#map">Map</a></li>
+		<li><a href="#sites">List of Sites</a></li>
+	  </ul>
+	</div><!--/content -->
+<div data-role="footer" data-id="myfooter" data-position="fixed">
+	<div class="controls" data-role="controlegroup" data-type="horizontal">
+		<a href="#menu" data-role="button" data-icon="home">Menu</a>
+	</div>
+</div>
+</div>
+ 
+ <!-- Page 2 How to Play -->
+ <div data-role="page" data-theme="a" id="instructions">
+  <div data-role="header">
+    <img class="displayed" src="images/certified.jpg" alt="Certified Local- Florida Edition Logo"/>
+  </div>
+	<div class="content">
+		<h2>How to Play</h2>
+		<p>Florida is veritable treasure trove of destination "gems".  Locals knows the hidden jewels of the area.  Travel the state finding the true treasure of Florida, her cultural and natural jewels.  Unlock the bounty the state has to offer while raising your rank from Recluse to Tourist all the way to Certified Local.  Check out a map of all of Florida's jewels or start exploring!</p>
+		
+	</div>
+	<div data-role="footer" data-id="myfooter" data-position="fixed">
+	<div class="controls" data-role="controlegroup" data-type="horizontal">
+		<a href="#menu" data-role="button" data-icon="home">Menu</a>
+	</div>
+</div>
+</div>
+
+
+<!-- Page 3 Ranking -->
+<div data-role="page" data-theme="a" id="rank">
+  <div data-role="header">
+    <img class="displayed" src="images/certified.jpg" alt="Certified Local- Florida Edition Logo"/>
+  </div>
+	<div class="content">
+		<h2>Current Rank</h2>
+		<p style="text-align:center" id="Rank"> 
+		</p>
+		
+		<p style="text-align:center" id="Message"> 
+		</p>
+		
+		<canvas id="pieChart"></canvas>
+		
+	</div>
+	<div data-role="footer" data-id="myfooter" data-position="fixed">
+	<div class="controls" data-role="controlegroup" data-type="horizontal">
+		<a href="#menu" data-role="button" data-icon="home">Menu</a>
+	</div>
+ </div>
+  </div>
+ 
+ <!-- Page 4 Hunt for Treasure -->
+ <div data-role="page" data-theme="a" id="search">
+  
+	<div id="map-canvas"></div>
+
+	
+	<div data-role="footer" data-id="myfooter" data-position="fixed">
+	<div class="controls" data-role="controlegroup" data-type="horizontal">
+		<a href="#menu" data-role="button" data-icon="home">Menu</a>
+	</div>
+	</div>
+</div>
+
+
+<!-- Page 5 Map -->
+ <div data-role="page" data-theme="a" id="map">
+  <div data-role="header">
+    <img class="displayed" src="images/certified.jpg" alt="Certified Local- Florida Edition Logo"/>
+  </div>
+	<div class="content">
+		<h2>Treasure Map</h2>
+		<canvas id="myCanvas"></canvas>
+		
+	<div data-role="footer" data-id="myfooter" data-position="fixed">
+	<div class="controls" data-role="controlegroup" data-type="horizontal">
+		<a href="#menu" data-role="button" data-icon="home">Menu</a>
+	</div>
+	</div>
+</div>
+ </div>
+
+<!-- Page 6 Search -->
+<div data-role="page" data-theme="a" id="sites">
+  <div data-role="header">
+    <img class="displayed" src="images/certified.jpg" alt="Certified Local- Florida Edition Logo"/>
+  </div>
+	<div class="content">
+	<h2>Search Sites by Name</h2>
+  
+	<form class="ui-filterable">
+	<input id="myFilter" data-type="search">
+	</form>
+	<ul data-role="listview" data-filter="true" data-input="#myFilter">
+		<li class="search"><a href="#">Appalachicola</a></li>
+		<li class="search"><a href="#">Big Lagoon</a></li>
+		<li class="search"><a href="#">Bill Baggs</a></li> 
+		<li class="search"><a href="#">Blue Springs</a></li>
+		<li class="search"><a href="#">Castillo de San Marcos</a></li>
+		<li class="search"><a href="#">Cedar Key</a></li>
+		<li class="search"><a href="#">Dry Tortugas</a></li>
+		<li class="search"><a href="#">Everglades National Park</a></li>
+		<li class="search"><a href="#">Fernandina Beach</a></li>
+		<li class="search"><a href="#">Florida State Caverns</a></li>
+		<li class="search"><a href="#">Fort Clinch</a></li>
+		<li class="search"><a href="#">Fort Matanzas</a></li>
+		<li class="search"><a href="#">Fort Zachary Taylor</a></li>
+		<li class="search"><a href="#">Homosassa Springs</a></li>
+		<li class="search"><a href="#">Key West</a></li>
+		<li class="search"><a href="#">Kinglsey Plantation</a></li>
+		<li class="search"><a href="#">Miracle Mile</a></li>
+		<li class="search"><a href="#">Silver Springs</a></li>
+		<li class="search"><a href="#">St. George Street</a></li>
+		<li class="search"><a href="#">Wakulla Springs</a></li>
+		<li class="search"><a href="#">Washington Oaks</a></li>
+		<li class="search"><a href="#">Ybor City</a></li>
+	</ul>
+ 
+	<div data-role="footer" data-id="myfooter" data-position="fixed">
+	<div class="controls" data-role="controlegroup" data-type="horizontal">
+		<a href="#menu" data-role="button" data-icon="home">Menu</a>
+	</div>
+	</div>
+</div>
+ </div>
+</body>
+</html>
