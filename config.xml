@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.phonegap.certifiedlocal"
+        id = "com.certified.certifiedlocal"
         version = "1.0.0">
 
     <name>Certified Local - Florida Edition</name>
@@ -16,35 +16,21 @@
         Sarah Daugherty
     </author>
 
-    <!--
-Enable individual API permissions by defining each here.
-The 'device' permission is required for the 'deviceready' event.
--->
-    <feature name="http://api.phonegap.com/1.0/device" /></feature>
-	<feature name="Geolocation"><param value="org.apache.cordova.GeoBroker" name="android-package"/></feature>
+   
+    <feature name="http://api.phonegap.com/1.0/device" />
+	<feature name="http://api.phonegap.com/1.0/geolocation" />
 
-<gap:platform name="android" />
 
-    <!--
-If you do not want any permissions to be added to your app, add the
-following tag to your config.xml; you will still have the INTERNET
-permission on your app, which PhoneGap requires.
--->
-    
+	<gap:platform name="android" />
 
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="phonegap-version" value="2.5.0" /> <!-- all: current version of PhoneGap -->
+    <preference name="phonegap-version" value="3.5.0" />  <!-- all: current version of PhoneGap -->
     <preference name="target-device" value="universal" /> <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen" value="true" /> <!-- all: hides the status bar at the top of the screen -->
     <preference name="android-minSdkVersion" value="7" /> <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
     <preference name="android-installLocation" value="auto" /> <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
-    <!-- Plugins can also be added here. -->
-    <!--
-<gap:plugin name="Example" />
-A list of available plugins are available at https://build.phonegap.com/docs/plugins
--->
-
+ 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
     <icon src="images/icon/icon-36-ldpi.png" gap:platform="android" gap:density="ldpi" />
@@ -54,6 +40,7 @@ A list of available plugins are available at https://build.phonegap.com/docs/plu
     
 
     <!-- Define app splash screen for each platform. -->
+	<gap:splash src="splash.png" />
     <gap:splash src="images/splash/ldpi-portrait.png" gap:platform="android" gap:density="ldpi" />
     <gap:splash src="images/splash/mdpi-portrait.png" gap:platform="android" gap:density="mdpi" />
     <gap:splash src="images/splash/hdpi-portrait.png" gap:platform="android" gap:density="hdpi" />
@@ -75,4 +62,6 @@ Otherwise, you can specify specific domains:
 -->
 
 </widget>
+
+
 
