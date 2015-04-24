@@ -7,8 +7,9 @@
 	<meta name="author" content="Sarah Daugherty">
 	
 	<title>Certified Local</title>
-	<link rel="stylesheet" type="text/css" href="CSS/style1.css"/>
+	
 	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<link rel="stylesheet" type="text/css" href="CSS/style1.css"/>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -27,9 +28,9 @@
   <div data-role="content">
 	   <ul data-role="listview" data-inset="true">
 		<li><a href="#instructions">How To Play</a></li>
-		<li><a href="#rank">Current Rank</a></li>
-		<li><a href="#search">Search for Jewels</a></li>
-		<li><a href="#map">Map</a></li>
+		<li><a href="#rank" onClick="rankPage()">Current Rank</a></li>
+		<li><a href="#search" onClick="startWatching()">Search for Nearby Jewels</a></li>
+		<li><a href="#map" onClick="initialize()">Map of Florida Sites</a></li>
 		<li><a href="#sites">List of Sites</a></li>
 	  </ul>
 	</div><!--/content -->
@@ -97,20 +98,15 @@
 
 <!-- Page 5 Map -->
  <div data-role="page" data-theme="a" id="map">
-  <div data-role="header">
-    <img class="displayed" src="images/certified.jpg" alt="Certified Local- Florida Edition Logo"/>
-  </div>
-	<div class="content">
-		<h2>Treasure Map</h2>
-		<canvas id="myCanvas"></canvas>
-		
+  		
+		<div id="myFlorida"></div>
+	
 	<div data-role="footer" data-id="myfooter" data-position="fixed">
 	<div class="controls" data-role="controlegroup" data-type="horizontal">
 		<a href="#menu" data-role="button" data-icon="home">Menu</a>
 	</div>
 	</div>
 </div>
- </div>
 
 <!-- Page 6 Search -->
 <div data-role="page" data-theme="a" id="sites">
