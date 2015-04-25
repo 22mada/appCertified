@@ -28,9 +28,9 @@
   <div data-role="content">
 	   <ul data-role="listview" data-inset="true">
 		<li><a href="#instructions">How To Play</a></li>
-		<li><a href="#rank" onClick="rankPage()">Current Rank</a></li>
-		<li><a href="#search" onClick="startWatching()">Search for Nearby Jewels</a></li>
-		<li><a href="#map" onClick="initialize()">Map of Florida Sites</a></li>
+		<li><a href="#rank">Current Rank</a></li>
+		<li><a href="#search">Search for Nearby Jewels</a></li>
+		<!--<li><a href="#map" onClick="initialize()">Map of Florida Sites</a></li>-->
 		<li><a href="#sites">List of Sites</a></li>
 	  </ul>
 	</div><!--/content -->
@@ -84,9 +84,9 @@
  
  <!-- Page 4 Hunt for Treasure -->
  <div data-role="page" data-theme="a" id="search">
-  
-	<div id="map-canvas"></div>
-
+  <div data-role="content" id="content">
+		<div id="map-canvas"></div>
+	</div>
 	
 	<div data-role="footer" data-id="myfooter" data-position="fixed">
 	<div class="controls" data-role="controlgroup" data-type="horizontal">
@@ -96,18 +96,18 @@
 </div>
 
 
-<!-- Page 5 Map -->
+<!-- Page 5 Map 
  <div data-role="page" data-theme="a" id="map">
-  		
+  		<div data-role="content" id="content">
 		<div id="myFlorida"></div>
-	
+		</div>
 	<div data-role="footer" data-id="myfooter" data-position="fixed">
 	<div class="controls" data-role="controlgroup" data-type="horizontal">
 		<a href="#menu" data-role="button" data-icon="home">Menu</a>
 	</div>
 	</div>
 </div>
-
+-->
 <!-- Page 6 Search -->
 <div data-role="page" data-theme="a" id="sites">
   <div data-role="header">
