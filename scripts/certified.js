@@ -214,6 +214,8 @@ function test(){
 
 };
 
+
+
 //This is the code for load current location map with nearby jewels
 
 function startWatching(){
@@ -319,8 +321,6 @@ function addLoadEvent(func) {
   }
 }
 
-addLoadEvent(test);
-addLoadEvent(rankPage);
 addLoadEvent(startWatching);
 
 
