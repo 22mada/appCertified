@@ -1,11 +1,17 @@
 
 //Global variables
-var count = 0;
-
+// set variable count to local storage  item "local count"
+//if null then set count to zero
+var count = window.localStorage.getItem("localCount");
+if (!count){
+	count = 0;
+	
+	}
+// jewels array holds name of site and latitude and longitude
 var jewels = [
-['Appalachicola', 29.728594, -84.983125],
-['Big Lagoon', 30.309108, -87.402164],
-['Bill Baggs Cape Florida', 25.666567, -80.156032],
+['Playground', 29.812650, -81.295905],
+['St. Augustine Shores', 29.790283, -81.313113],
+['Matanzas River', 29.814278, -81.294753],
 ['Blue Springs, 28.947619', -81.339318],
 ['Castillo de San Marcos', 29.898433, -81.310973],
 ['Cedar Key', 29.134598, -83.031087],
@@ -27,10 +33,22 @@ var jewels = [
 ['Ybor City', 27.960911, -82.441631] 
 ];
 
-var visit = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+// this array stores whether the sites in the jewel array have been visited
+//it is stored in local storage "localVisit"  if localVisit is null then all sites are set to false
+var visit = [];
+if (window.localStorage.localVisit){
+ visit = JSON.parse(window.localStorage["localVisit"]);
+}
+else {
+	visit = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+	
+}
 var image = "images/lock.png";
 
-// ranks and messages to display for current rank page
+//Functions
+
+
+// This function takes the count variable and determines the players rank.  It also displays a message to the screen about the rank
 function rankPage() {
 	var rankCount = Math.round(count/10);
 	var rank = ["Recluse", "Spring Breaker", "Tourist", "Snow Bird", "Resident", "Scout", "Explorer", "Tour Guide", "Nearly Native", "Certified Local"];
@@ -216,24 +234,29 @@ function test(){
 
 
 
-//This is the code for load current location map with nearby jewels
+//function startWatching watches for a change in position
 
 function startWatching(){
 	var options = {timeout: 300000, enableHighAccuracy: true, maximumAge: 200 };
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 	}
-	
+//function stopWatching tells startWatching functionto stop
 function stopWatching() {
 		if(watchID) geo.clearWatch(watchID);
 		watchID = null;
 	}
 	
+// function on Error  displays error code and message in alert box
 function onError(error){
 		stopWatching;
 		alert('code: '+ error.code + ' message: ' + error.message+'\n');
 		}	
-		
   
+ //function inSite takes in location array, latitude, and longitude
+ // lattitude and longitude shortened to 4 decimal places
+ // looks to see if current latitude and current longitude match a jewel location in the array
+ // if there is a match it ups count by 4 sets visit array to true and displays to a screen
+ // visit array is stringified and stored in local variable "localVisit"
 function inSite(location, x, y){
 
 	x= x.toFixed(4);
@@ -243,13 +266,16 @@ function inSite(location, x, y){
 			var jewel = location[i];
 			if( jewel[1].toFixed(4) ==x && jewel[2].toFixed(4) == y){
 			count= count + 4;
+			window.localStorage.setItem("localCount", count);
 			alert("Congratulations!\n You found the  jewel at " + jewel[0] + "! \n You have a total of " + count/4 + " jewels.");
 			visit[i]=true;
+			window.localStore["localVisit"] = JSON.stringify(visit);
 			}
 		}
 	}
 }
 
+//takes in integer that determines array location if true image displayed is a lock else a jewel
 function setImage(i){
  if(visit[i]!= true){
  image = "images/lock.png";
@@ -260,6 +286,8 @@ function setImage(i){
  return image;
 }
 
+//function takes in  map object and array of locations and sets markers onto the map object 
+//calls setImage function to determine the correct image to display
 function setMarkers(map, locations) {
 
     for (var i = 0; i < locations.length; i++) {
@@ -274,7 +302,8 @@ function setMarkers(map, locations) {
     });
   }
 }
-
+// creates google map 
+//calls function setMarkers
 function onSuccess(position) {
 	var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	var lat = position.coords.latitude;
@@ -284,7 +313,7 @@ function onSuccess(position) {
 	
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	setMarkers(map, jewels);
-	map.setCenter(pos);
+	map.panTo(pos);  //changed from "map.setCenter(pos);" checking to see if it makes map transitions more smooth
 	var markerYou = new google.maps.Marker({
         position: pos,
         map: map,
@@ -296,6 +325,9 @@ function onSuccess(position) {
       });   
       inSite(jewels, lat, lon);
   }	
+  
+  //Having 2 maps is problematic in jquery mobile removing map until fix determined
+ /*
 //Static map of Florida code
 function initialize() {  
 	var map1;
@@ -306,6 +338,7 @@ function initialize() {
 	map1 = new google.maps.Map(document.getElementById('myFlorida'), mapOptions);
 	setMarkers(map1, jewels);
 }
+*/
 //code to run multiple load events
 function addLoadEvent(func) {
   var oldonload = window.onload;
