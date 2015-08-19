@@ -247,7 +247,7 @@ function test(){
 //function startWatching watches for a change in position
 
 function startWatching(){
-	var options = {timeout: 300000, enableHighAccuracy: true, maximumAge: 200 };//was 200
+	var options = {timeout: 300000, enableHighAccuracy: true, maximumAge: 2000 };//was 200
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 	}
 //function stopWatching tells startWatching functionto stop
