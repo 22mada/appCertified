@@ -1,3 +1,6 @@
+// Sarah Daugherty 
+
+
 
 //Global variables
 
@@ -48,7 +51,14 @@ else{
 }
 	
 if (window.localStorage.localVisit){
- visit = JSON.parse(window.localStorage["localVisit"]);
+  var visitString = JSON.parse(window.localStorage["localVisit"]);
+  for (var n = 0; n < visitString.length; n++){
+	  if(visitString[n]== "true"){
+		  visit[n]=true;
+	  }
+	  else 
+		  visit[n]=false;
+  }
 }
 else {
 	visit = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
@@ -287,7 +297,7 @@ function inSite(location, x, y){
 
 //takes in integer that determines array location if true image displayed is a lock else a jewel
 function setImage(i){
- if(visit[i]!= true){
+ if(visit[i]!= true){//maybe try !==
  image = "images/lock.png";
  }
  else{
