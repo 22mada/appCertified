@@ -41,7 +41,7 @@ var image = "images/lock.png";//sets default marker on map to lock image
 //checks to see if anything stored in localStorage variables and sets variables to default setting if false
 function checkLocalStorage(){
 if(window.localStorage.localCount){
-	count = window.localStorage.getItem("localCount");
+	count = parseInt(window.localStorage.getItem("localCount"),10);
 }
 else{
 	count = 0;
@@ -276,7 +276,7 @@ function inSite(location, x, y){
 			var jewel = location[i];
 			if( jewel[1].toFixed(4) ==x && jewel[2].toFixed(4) == y){
 			count= count + 4;
-			window.localStorage.setItem("localCount", count);
+			window.localStorage.setItem("localCount", count.toString());
 			alert("Congratulations!\n You found the  jewel at " + jewel[0] + "! \n You have a total of " + count/4 + " jewels.");
 			visit[i]=true;
 			window.localStore["localVisit"] = JSON.stringify(visit);
