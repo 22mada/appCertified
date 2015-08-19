@@ -323,7 +323,7 @@ function onSuccess(position) {
 	
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	setMarkers(map, jewels);
-	map.panToBounds(pos);  //changed from "map.setCenter(pos);" checking to see if it makes map transitions more smooth
+	map.panTo(pos);  //changed from "map.setCenter(pos);" checking to see if it makes map transitions more smooth
 	var markerYou = new google.maps.Marker({
         position: pos,
         map: map,
@@ -363,8 +363,8 @@ function addLoadEvent(func) {
     }
   }
 }
-
-addLoadEvent(startWatching);
 addLoadEvent(checkLocalStorage);
+addLoadEvent(startWatching);
+
 
 
