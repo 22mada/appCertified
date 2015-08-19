@@ -1,13 +1,8 @@
 
 //Global variables
-// set variable count to local storage  item "local count"
-//if null then set count to zero
-var count = window.localStorage.getItem("localCount");
-if (!count){
-	count = 0;
-	
-	}
-// jewels array holds name of site and latitude and longitude
+
+
+//Stores sites that players visit to move up in rank including name and latitude and longitude
 var jewels = [
 ['Playground', 29.812650, -81.295905],
 ['St. Augustine Shores', 29.790283, -81.313113],
@@ -33,9 +28,25 @@ var jewels = [
 ['Ybor City', 27.960911, -82.441631] 
 ];
 
-// this array stores whether the sites in the jewel array have been visited
-//it is stored in local storage "localVisit"  if localVisit is null then all sites are set to false
-var visit = [];
+
+var count;//stores the total number of visited sites
+var visit = [];// stores boolean value for each site true for visited
+var image = "images/lock.png";//sets default marker on map to lock image
+
+
+//Functions
+
+
+
+//checks to see if anything stored in localStorage variables and sets variables to default setting if false
+function checkLocalStorage(){
+if(window.localStorage.localCount){
+	count = window.localStorage.getItem("localCount");
+}
+else{
+	count = 0;
+}
+	
 if (window.localStorage.localVisit){
  visit = JSON.parse(window.localStorage["localVisit"]);
 }
@@ -43,9 +54,8 @@ else {
 	visit = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 	
 }
-var image = "images/lock.png";
 
-//Functions
+}
 
 
 // This function takes the count variable and determines the players rank.  It also displays a message to the screen about the rank
@@ -313,7 +323,7 @@ function onSuccess(position) {
 	
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	setMarkers(map, jewels);
-	map.panTo(pos);  //changed from "map.setCenter(pos);" checking to see if it makes map transitions more smooth
+	map.panToBounds(pos);  //changed from "map.setCenter(pos);" checking to see if it makes map transitions more smooth
 	var markerYou = new google.maps.Marker({
         position: pos,
         map: map,
@@ -355,6 +365,6 @@ function addLoadEvent(func) {
 }
 
 addLoadEvent(startWatching);
-
+addLoadEvent(checkLocalStorage);
 
 
