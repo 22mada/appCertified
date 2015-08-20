@@ -369,7 +369,7 @@ function addLoadEvent(func) {
 }
 addLoadEvent(checkLocalStorage);
 addLoadEvent(startWatching);
-addLoadEvent(initialize);
+
 
 
 
