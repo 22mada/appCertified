@@ -51,19 +51,14 @@ else{
 }
 
 if (window.localStorage.localVisit){
-  var visitString = JSON.parse(window.localStorage["localVisit"]);
-  for (var n = 0; n < visitString.length; n++){//loops through string array created by JSON parse of local storage and creates converts to bool to store in visit
-	  if(visitString[n]== "true"){
-		  visit[n]=true;
-	  }
-	  else 
-		  visit[n]=false;
-  }
-}
+    visit = JSON.parse(window.localStorage["localVisit"]);
+    }
+
 else {
 	visit = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
-	
+	alert(" no local storage for gems");
 }
+
 
 
 }
