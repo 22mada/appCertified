@@ -285,7 +285,7 @@ function inSite(location, x, y){
 			window.localStorage.setItem("localCount", count.toString());
 			alert("Congratulations!\n You found the  jewel at " + jewel[0] + "! \n You have a total of " + count/4 + " jewels.");
 			visit[i]=true;
-			window.localStore["localVisit"] = JSON.stringify(visit);
+			window.localStorage["localVisit"] = JSON.stringify(visit);
 			}
 		}
 	}
