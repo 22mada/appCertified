@@ -49,10 +49,10 @@ if(window.localStorage.localCount){
 else{
 	count = 0;
 }
-	
+
 if (window.localStorage.localVisit){
   var visitString = JSON.parse(window.localStorage["localVisit"]);
-  for (var n = 0; n < visitString.length; n++){
+  for (var n = 0; n < visitString.length; n++){//loops through string array created by JSON parse of local storage and creates converts to bool to store in visit
 	  if(visitString[n]== "true"){
 		  visit[n]=true;
 	  }
@@ -64,6 +64,7 @@ else {
 	visit = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 	
 }
+
 
 }
 
@@ -257,7 +258,7 @@ function test(){
 //function startWatching watches for a change in position
 
 function startWatching(){
-	var options = {timeout: 300000, enableHighAccuracy: true, maximumAge: 2000 };//was 200
+	var options = {timeout: 300000, enableHighAccuracy: true, maximumAge: 200000 };//was 200
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 	}
 //function stopWatching tells startWatching functionto stop
