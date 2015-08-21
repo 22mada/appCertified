@@ -341,7 +341,7 @@ function onSuccess(position) {
   }	
   
   //Having 2 maps is problematic in jquery mobile removing map until fix determined
- 
+ /*
 //Static map of Florida code
 function initialize() {  
 	var map1;
@@ -352,7 +352,7 @@ function initialize() {
 	map1 = new google.maps.Map(document.getElementById('myFlorida'), mapOptions);
 	setMarkers(map1, jewels);
 }
-
+*/
 //code to run multiple load events
 function addLoadEvent(func) {
   var oldonload = window.onload;
@@ -369,7 +369,6 @@ function addLoadEvent(func) {
 }
 addLoadEvent(checkLocalStorage);
 addLoadEvent(startWatching);
-
 
 
 
